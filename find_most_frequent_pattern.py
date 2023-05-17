@@ -47,3 +47,22 @@ pattern_list = find_frequent_patterns(text, pattern_length)
 print(*pattern_list)
 
 dna_file.close()
+
+
+
+#
+# The following code is only for running through the command line interface
+#
+
+if __name__ == "__main__":
+    def print_usage():
+        print("Usage:\n", file=sys.stderr)
+        print("python find_most_frequent_pattern.py [file_name.txt]", file=sys.stderr)
+
+    if len(sys.argv) != 2:
+        print_usage()
+    with open(sys.argv[1]) as f:
+        text = f.readline().strip()
+        pattern_length = int(f.readline().strip())
+
+        count = find_frequent_patterns(text, pattern_length)
