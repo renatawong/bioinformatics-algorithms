@@ -41,9 +41,12 @@ if __name__ == "__main__":
 
     if len(sys.argv) > 2:
         print_usage()
-    with open(sys.argv[0]) as f:
-        text = f.readline()
-        pattern = f.readline()
+    try:
+        with open(sys.argv[1], 'r') as f:
+            text = f.readline()
+            pattern = f.readline()
 
-        count = pattern_count(text, pattern)
+            count = pattern_count(text, pattern)
+    except:
+        pass
 
