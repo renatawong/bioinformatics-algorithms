@@ -39,9 +39,9 @@ if __name__ == "__main__":
         print("Usage:\n", file=sys.stderr)
         print("python count_pattern_occurrences.py [file_name.txt]", file=sys.stderr)
 
-    if len(sys.argv) != 2:
+    if len(sys.argv) > 2:
         print_usage()
-    with open(sys.argv[1]) as f:
+    with open(sys.argv[0]) as f:
         text = f.readline()
         pattern = f.readline()
 
