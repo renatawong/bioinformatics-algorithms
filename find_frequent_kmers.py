@@ -9,12 +9,6 @@ Line 2: length k of k-mer
 '''
 
 import sys
-import numpy as np
-
-
-dna_file = open('Frequent_patterns.txt', 'r')
-text = dna_file.readline().strip()
-pattern_length = int(dna_file.readline().strip())
 
 
 def frequency_table(text, k):
@@ -43,10 +37,7 @@ def find_frequent_patterns(text, k):
     
     return frequent_patterns
 
-pattern_list = find_frequent_patterns(text, pattern_length)
-print(*pattern_list)
 
-dna_file.close()
 
 
 
@@ -57,16 +48,17 @@ dna_file.close()
 if __name__ == "__main__":
     def print_usage():
         print("Usage:\n", file=sys.stderr)
-        print("python find_frequent_kmers.py [file_name.txt]", file=sys.stderr)
+        print("python ./find_frequent_kmers.py [file_name.txt]", file=sys.stderr)
 
     if len(sys.argv) > 2:
         print_usage()
     
-    try:
-        with open(sys.argv[1]) as f:
-            text = f.readline().strip()
-            pattern_length = int(f.readline().strip())
+    with open(sys.argv[1], 'r') as dna_file:
 
-            count = find_frequent_patterns(text, pattern_length)
-    except:
-        pass
+        text = dna_file.readline().strip()
+        pattern_length = int(dna_file.readline().strip())
+
+        pattern_list = find_frequent_patterns(text, pattern_length)
+        print(*pattern_list)
+
+        dna_file.close()
