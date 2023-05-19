@@ -1,10 +1,10 @@
 '''
 (C) Renata Wong
 
-Algorithm for finding the DNA patterns of length k (k-mers) that occur most frequently in a DNA sequence.
+Algorithm for finding patterns of length k (k-mers) that occur most frequently in a genome.
 
 The file to be read consists of 2 lines:
-Line 1: DNA sequence
+Line 1: Nucleotide sequence
 Line 2: length k of k-mer
 '''
 
@@ -53,12 +53,12 @@ if __name__ == "__main__":
     if len(sys.argv) > 2:
         print_usage()
     
-    with open(sys.argv[1], 'r') as dna_file:
+    with open(sys.argv[1], 'r') as genome_file:
 
-        text = dna_file.readline().strip()
-        pattern_length = int(dna_file.readline().strip())
+        text = genome_file.readline().strip()
+        pattern_length = int(genome_file.readline().strip())
 
         pattern_list = find_frequent_patterns(text, pattern_length)
         print(*pattern_list)
 
-        dna_file.close()
+        genome_file.close()
