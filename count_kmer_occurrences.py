@@ -21,6 +21,14 @@ def pattern_count(text, pattern):
     return count
 
 
+def compute(f):
+    text = f.readline().strip()
+    pattern = f.readline().strip()
+
+    count = pattern_count(text, pattern)
+    print('Number of occurrences of {}-mer {} :  {}'.format(len(pattern), pattern, count))
+
+    f.close()
 
 
 
@@ -33,15 +41,17 @@ if __name__ == "__main__":
         print("Usage:\n", file=sys.stderr)
         print("python ./count_kmer_occurrences.py [file_name.txt]", file=sys.stderr)
 
+    # For execution from IDE
+    if len(sys.argv) == 1:
+        with open('Vibrio_cholerae.txt', 'r') as genome_file:
+            compute(genome_file)
+
+    # For execution from terminal
+    elif len(sys.argv) == 2:
+        with open(sys.argv[1], 'r') as genome_file:
+            compute(genome_file)
+
+    
     if len(sys.argv) > 2:
         print_usage()
-    
-    with open(sys.argv[1], 'r') as genome_file:
-        text = genome_file.readline().strip()
-        pattern = genome_file.readline().strip()
-
-        count = pattern_count(text, pattern)
-        print('Number of occurrences of {}-mer {} :  {}'.format(len(pattern), pattern, count))
-
-        genome_file.close()
-
+ 
