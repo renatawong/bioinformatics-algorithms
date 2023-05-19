@@ -40,6 +40,16 @@ def find_frequent_patterns(text, k):
 
 
 
+def compute(f):
+    text = f.readline().strip()
+    pattern_length = int(f.readline().strip())
+
+    pattern_list = find_frequent_patterns(text, pattern_length)
+    print(*pattern_list)
+
+    f.close()
+
+
 
 #
 # The following code is only for running through the command line interface
@@ -53,12 +63,12 @@ if __name__ == "__main__":
     if len(sys.argv) > 2:
         print_usage()
     
-    with open(sys.argv[1], 'r') as genome_file:
+    # Run from IDE
+    if len(sys.argv) == 1:
+        with open('Frequent_patterns.txt', 'r') as genome_file:
+            compute(genome_file)
 
-        text = genome_file.readline().strip()
-        pattern_length = int(genome_file.readline().strip())
-
-        pattern_list = find_frequent_patterns(text, pattern_length)
-        print(*pattern_list)
-
-        genome_file.close()
+    # Run form terminal
+    elif len(sys.argv) == 2:
+        with open(sys.argv[1], 'r') as genome_file:
+            compute(genome_file)
