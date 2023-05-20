@@ -14,8 +14,6 @@ import sys
 
 def reverse_complement(text):
 
-    replacements = [('A','T'), ('T','A'), ('C','G'), ('G','C')]
-
     complement = text[::-1]
 
     reverse_complement = ''
