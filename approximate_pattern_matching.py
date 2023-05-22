@@ -1,7 +1,7 @@
 '''
 (C) Renata Wong
 
-This code calculates the Hamming distance between two DNA strands. 
+This code finds the total count of k-mers within a genome that differ with the genome by at most Hamming distance *d*. The code also outputs the indices of the approximately matching k-mers. 
 
 The file to be read consists of two lines:
 Line 1: k-mer, e.g. 'TGC'
