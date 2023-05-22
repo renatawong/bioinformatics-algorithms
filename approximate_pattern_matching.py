@@ -33,13 +33,15 @@ def hamming_distance(p, q):
 def approximate_pattern_matching(pattern, genome, d):
 
     indices = []
+    total_count = 0
 
     for i in range(len(genome) - len(pattern)+1):
         if hamming_distance(pattern, genome[i : len(pattern)+i]) <= d:
             indices.append(i)
+            total_count += 1
 
 
-    return indices
+    return indices, total_count
 
 
 
@@ -53,9 +55,10 @@ def compute(f):
     genome = f.readline().strip()
     distance = int(f.readline().strip())
 
-    matched_pattern_indices = approximate_pattern_matching(kmer, genome, distance)
-    print("Indices of approximate pattern matchis with distance at most {}.".format(distance))
+    matched_pattern_indices, total_count = approximate_pattern_matching(kmer, genome, distance)
+    print("Indices of approximate pattern matchis with distance at most {}:".format(distance))
     print(*matched_pattern_indices)
+    print('Number of occurrences of {} with the given Hamming distance: {}'.format(kmer, total_count))  
     
     f.close()
 
