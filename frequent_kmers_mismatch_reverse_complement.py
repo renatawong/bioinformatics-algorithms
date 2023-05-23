@@ -126,7 +126,7 @@ def compute(f):
 if __name__ == "__main__":
     def print_usage():
         print("Usage:\n", file=sys.stderr)
-        print("python ./frequent_kmers_with_mismatch.py [file_name.txt]", file=sys.stderr)
+        print("python ./frequent_kmers_mismatch_reverse_complement.py [file_name.txt]", file=sys.stderr)
 
     if len(sys.argv) > 2:
         print_usage()
