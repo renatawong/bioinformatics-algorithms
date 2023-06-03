@@ -34,7 +34,7 @@ def motif_entropy(motifs):
                 prob_distr[2][column] += single_prob
             if base == 'T':
                 prob_distr[3][column] += single_prob
-    print(prob_distr)
+    
     for row in prob_distr:
         for column, value in enumerate(row):
             if value != 0.0:
