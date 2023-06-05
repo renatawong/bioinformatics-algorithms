@@ -65,7 +65,7 @@ def score(motifs):
 def generate_profile_matrix(motifs):
 
     # if calcuating with pseudocounts, initialize with 1.0, otherwise with 0.0
-    profile_matrix = [[0.0] * len(motifs[0]) for i in range(4)]
+    profile_matrix = [[1.0] * len(motifs[0]) for i in range(4)]
 
     single_prob = 1 / len(motifs)
 
@@ -149,7 +149,6 @@ def compute(f):
     
     k, t = map(int, f.readline().split())
     sequences = f.readline().split()
-    print(sequences)
 
     best_motifs = greedy_motif_search(k, t, sequences)
     print('The best motifs found')
