@@ -8,6 +8,11 @@ Line 1: k t
 Line 2: sequences separated by spaces
 
 If no file is specified, 'Greedy_motifs.txt' is loaded by default.
+
+NOTE: If calculating with pseudocounts, initialize profile_matrix in generate_profile-matrix()
+with 1.0, otherwise with 0.0. Using pseudocounts prevents us from obtaining a 0 value when
+there is a mismatch on e.g. one single position while the rest of the string overlaps perfectly with
+the motif. 
 '''
 
 
