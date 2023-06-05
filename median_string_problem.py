@@ -59,6 +59,7 @@ def compute(f):
     k = int(f.readline())
     dna_strings = [dna_string for dna_string in map(str, f.readline().split())]
 
+
     median_kmers = median_string(k, dna_strings)
     print('K-mers found =', median_kmers) 
 
