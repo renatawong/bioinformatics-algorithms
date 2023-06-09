@@ -162,7 +162,7 @@ def compute(f):
     k, t = map(int, f.readline().split())
     sequences = f.readline().split()
 
-    best_motifs = repeated_randomized_motif_search(k, t, sequences)
+    best_motifs = repeated_randomized_motif_search(sequences, k, t)
     print('The best motifs found')
     print(*best_motifs) 
 
